@@ -9,47 +9,67 @@ async function getData() {
 }
 
 const feed = []
-getData()
-  .then(data => data.map(element => feed.push(element)))
-  .then( () => console.log(feed))
+// getData() 
+//  .then(data => data.map(element => feed.push(element)))
+//  .then( () => console.log(feed))
 
 class ScreenOne extends React.Component  {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      status: false,  
+    };
+  } 
+
   static navigationOptions = {
-    title: 'Page 1'
+    title: 'Homepage'
   }
+
+  componentWillMount() {
+    getData()
+      .then(data => data.map(element => feed.push(element)))
+      .then(res => this.setState({ status: true }))
+      .catch(err => alert("An error occurred"));
+  }
+  
   render() {
     const { navigate } = this.props.navigation
-    return (
-      <Grid>
-        <Row>
-          <View style={styles.container}>
-            <TouchableHighlight style={[styles.button, {backgroundColor: '#FECB44'}]}>
-              <Text style={styles.buttonText}>1</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={styles.container}>
-            <TouchableHighlight style={[styles.button, {backgroundColor: '#18A25F'}]}>
-              <Text style={styles.buttonText}>2</Text>
-            </TouchableHighlight>
-          </View>
-        </Row>
-        <Row>
-          <View style={styles.container}>
-            <TouchableHighlight
-              onPress={() => navigate("ScreenTwo", {screen: "Screen Two"})}
-              style={[styles.button, {backgroundColor: '#F9453B'}]}
-            >
-              <Text style={styles.buttonText}>3</Text>
-            </TouchableHighlight>
-          </View>
-          <View style={styles.container}>
-            <TouchableHighlight style={[styles.button, {backgroundColor: '#4B8BF5'}]}>
-              <Text style={styles.buttonText}>4</Text>
-            </TouchableHighlight>
-          </View>
-        </Row>
-      </Grid>
-    );
+    if (!this.state.status) {
+      return(<Text>Loading...</Text>)
+    } else {
+      return (
+        <Grid>
+          <Row>
+            <View style={styles.container}>
+              <TouchableHighlight style={[styles.button, {backgroundColor: '#FECB44'}]}>
+                <Text style={styles.buttonText}>{feed[2][2]}</Text>
+              </TouchableHighlight>
+            </View>
+            <View style={styles.container}>
+              <TouchableHighlight style={[styles.button, {backgroundColor: '#18A25F'}]}>
+                <Text style={styles.buttonText}>{feed[3][2]}</Text>
+              </TouchableHighlight>
+            </View>
+          </Row>
+          <Row>
+            <View style={styles.container}>
+              <TouchableHighlight
+                onPress={() => navigate("ScreenTwo", {screen: "Screen Two"})}
+                style={[styles.button, {backgroundColor: '#F9453B'}]}
+              >
+                <Text style={styles.buttonText}>{feed[4][2]}</Text>
+              </TouchableHighlight>
+            </View>
+            <View style={styles.container}>
+              <TouchableHighlight style={[styles.button, {backgroundColor: '#4B8BF5'}]}>
+                <Text style={styles.buttonText}>{feed[5][2]}</Text>
+              </TouchableHighlight>
+            </View>
+          </Row>
+        </Grid>
+      );
+    }
   }
 };
   
@@ -69,7 +89,7 @@ class ScreenTwo extends React.Component {
           <TouchableHighlight
             onPress={() => this.props.navigation.goBack()}
             style={[styles.button, {backgroundColor: '#8E84FB'}, {padding: 20}]}>
-            <Text style={styles.buttonText}>{`${feed[1][3]}`}</Text>
+            <Text style={styles.buttonText}>{feed[1][3]}</Text>
           </TouchableHighlight>
 
           {/* <TouchableHighlight
@@ -90,7 +110,7 @@ const SimpleApp = StackNavigator({
   tabBarOptions: { 
     activeTintColor: '#7567B1',
     labelStyle: {
-      fontSize: 16,
+      fontSize: 20,
       fontWeight: '600'
     }
   }
@@ -103,12 +123,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     alignSelf: 'stretch',
-    marginLeft: 20,
-    marginRight:20,
+    marginLeft: 5,
+    marginRight:5,
   },
   button: {
-    borderRadius: 15,
-    padding: 70
+    borderRadius: 10,
+    padding: 25,
+    paddingTop: 60,
+    paddingBottom: 60
+    
   },
   buttonText: {
     fontSize: 18,
