@@ -8,17 +8,30 @@ async function getData() {
   return await data.json()
 }
 
+const filterFeed = (array) => {
+  return array.filter(element => element[0] === "drawpage")
+}
+
+const matchPage = (array1, array2) => {
+  return array1.map(page => {
+    page.elements = array2.filter(element => element[1] === page[1] && element[0] === "fillpage")
+    return page
+  })
+}
+
 const feed = []
 // getData() 
 //  .then(data => data.map(element => feed.push(element)))
 //  .then( () => console.log(feed))
+// .catch(err => alert("An error occurred"));
 
 class ScreenOne extends React.Component  {
   constructor(props) {
     super(props);
 
     this.state = {
-      status: false,  
+      status: false,
+      pageIndex: []  
     };
   } 
 
@@ -29,6 +42,9 @@ class ScreenOne extends React.Component  {
   componentWillMount() {
     getData()
       .then(data => data.map(element => feed.push(element)))
+      .then(res => filterFeed(feed))
+      .then(res => matchPage(res, feed))
+      .then(res => console.log(res[0].elements, res[1].elements))
       .then(res => this.setState({ status: true }))
       .catch(err => alert("An error occurred"));
   }
@@ -43,12 +59,12 @@ class ScreenOne extends React.Component  {
           <Row>
             <View style={styles.container}>
               <TouchableHighlight style={[styles.button, {backgroundColor: '#FECB44'}]}>
-                <Text style={styles.buttonText}>{feed[2][2]}</Text>
+                <Text style={styles.buttonText}>{feed[2][3]}</Text>
               </TouchableHighlight>
             </View>
             <View style={styles.container}>
               <TouchableHighlight style={[styles.button, {backgroundColor: '#18A25F'}]}>
-                <Text style={styles.buttonText}>{feed[3][2]}</Text>
+                <Text style={styles.buttonText}>{feed[3][3]}</Text>
               </TouchableHighlight>
             </View>
           </Row>
@@ -58,12 +74,12 @@ class ScreenOne extends React.Component  {
                 onPress={() => navigate("ScreenTwo", {screen: "Screen Two"})}
                 style={[styles.button, {backgroundColor: '#F9453B'}]}
               >
-                <Text style={styles.buttonText}>{feed[4][2]}</Text>
+                <Text style={styles.buttonText}>{feed[4][3]}</Text>
               </TouchableHighlight>
             </View>
             <View style={styles.container}>
               <TouchableHighlight style={[styles.button, {backgroundColor: '#4B8BF5'}]}>
-                <Text style={styles.buttonText}>{feed[5][2]}</Text>
+                <Text style={styles.buttonText}>{feed[5][3]}</Text>
               </TouchableHighlight>
             </View>
           </Row>
@@ -89,7 +105,7 @@ class ScreenTwo extends React.Component {
           <TouchableHighlight
             onPress={() => this.props.navigation.goBack()}
             style={[styles.button, {backgroundColor: '#8E84FB'}, {padding: 20}]}>
-            <Text style={styles.buttonText}>{feed[1][3]}</Text>
+            <Text style={styles.buttonText}>{feed[6][3]}</Text>
           </TouchableHighlight>
 
           {/* <TouchableHighlight
