@@ -20,17 +20,13 @@ const matchPage = (array1, array2) => {
 }
 
 const feed = []
-// getData() 
-//  .then(data => data.map(element => feed.push(element)))
-//  .then( () => console.log(feed))
-// .catch(err => alert("An error occurred"));
 
 class ScreenOne extends React.Component  {
   constructor(props) {
     super(props);
 
     this.state = {
-      status: false,
+      ready: false,
       pageIndex: []  
     };
   } 
@@ -44,14 +40,15 @@ class ScreenOne extends React.Component  {
       .then(data => data.map(element => feed.push(element)))
       .then(res => filterFeed(feed))
       .then(res => matchPage(res, feed))
-      .then(res => console.log(res[0].elements, res[1].elements))
-      .then(res => this.setState({ status: true }))
+      .then(res => this.setState({ pageIndex: res }))
+      // .then(() => console.log(this.state.pageIndex))
+      .then(res => this.setState({ ready: true }))
       .catch(err => alert("An error occurred"));
   }
   
   render() {
     const { navigate } = this.props.navigation
-    if (!this.state.status) {
+    if (!this.state.ready) {
       return(<Text>Loading...</Text>)
     } else {
       return (
@@ -59,27 +56,27 @@ class ScreenOne extends React.Component  {
           <Row>
             <View style={styles.container}>
               <TouchableHighlight style={[styles.button, {backgroundColor: '#FECB44'}]}>
-                <Text style={styles.buttonText}>{feed[2][3]}</Text>
+                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[0][3]}</Text>
               </TouchableHighlight>
             </View>
             <View style={styles.container}>
               <TouchableHighlight style={[styles.button, {backgroundColor: '#18A25F'}]}>
-                <Text style={styles.buttonText}>{feed[3][3]}</Text>
+                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[1][3]}</Text>
               </TouchableHighlight>
             </View>
           </Row>
           <Row>
             <View style={styles.container}>
               <TouchableHighlight
-                onPress={() => navigate("ScreenTwo", {screen: "Screen Two"})}
+                onPress={() => navigate("ScreenTwo", {screen: "Screen Two", pageIndex: this.state.pageIndex})}
                 style={[styles.button, {backgroundColor: '#F9453B'}]}
               >
-                <Text style={styles.buttonText}>{feed[4][3]}</Text>
+                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[2][3]}</Text>
               </TouchableHighlight>
             </View>
             <View style={styles.container}>
               <TouchableHighlight style={[styles.button, {backgroundColor: '#4B8BF5'}]}>
-                <Text style={styles.buttonText}>{feed[5][3]}</Text>
+                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[3][3]}</Text>
               </TouchableHighlight>
             </View>
           </Row>
@@ -105,7 +102,7 @@ class ScreenTwo extends React.Component {
           <TouchableHighlight
             onPress={() => this.props.navigation.goBack()}
             style={[styles.button, {backgroundColor: '#8E84FB'}, {padding: 20}]}>
-            <Text style={styles.buttonText}>{feed[6][3]}</Text>
+            <Text style={styles.buttonText}>{state.params.pageIndex[1].elements[0][3]}</Text>
           </TouchableHighlight>
 
           {/* <TouchableHighlight
@@ -123,13 +120,13 @@ const SimpleApp = StackNavigator({
   ScreenOne: { screen: ScreenOne },
   ScreenTwo: { screen: ScreenTwo },
 }, {
-  tabBarOptions: { 
-    activeTintColor: '#7567B1',
-    labelStyle: {
-      fontSize: 20,
-      fontWeight: '600'
-    }
-  }
+  // tabBarOptions: { 
+  //   activeTintColor: '#7567B1',
+  //   labelStyle: {
+  //     fontSize: 20,
+  //     fontWeight: '600'
+  //   }
+  // }
 });
   
 export default SimpleApp 
