@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, AppRegistry, Button } from 'react-native';
-import { Col, Row, Grid } from "react-native-easy-grid";
-import { StackNavigator } from 'react-navigation';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import NavigationBar from 'react-native-navbar';
 
 async function getData() {
   const data = await fetch('https://devccc.assuredperformance.net/react_test.php')
@@ -21,19 +20,16 @@ const matchPage = (array1, array2) => {
 
 const feed = []
 
-class ScreenOne extends React.Component  {
+export default class App extends React.Component  {
   constructor(props) {
     super(props);
 
     this.state = {
       ready: false,
-      pageIndex: []  
+      page: null,
+      pageIndex: []
     };
   } 
-
-  static navigationOptions = {
-    title: 'Homepage'
-  }
 
   componentWillMount() {
     getData()
@@ -41,115 +37,89 @@ class ScreenOne extends React.Component  {
       .then(res => filterFeed(feed))
       .then(res => matchPage(res, feed))
       .then(res => this.setState({ pageIndex: res }))
-      // .then(() => console.log(this.state.pageIndex))
-      .then(res => this.setState({ ready: true }))
+      .then(() => this.setState({ page: parseInt(this.state.pageIndex[0][1].match(/\d+/g)-1, 10) }))
+      .then(() => this.setState({ ready: true }))
       .catch(err => alert("An error occurred"));
   }
+
+  fillPage = (element) => {
+    let item = element[2]
+    switch (item) {
+      case 'button':
+        return <TouchableHighlight key={element[3]} onPress={() => this.setState({ page: parseInt(element[5].match(/\d+/g)-1, 10) })} style={{backgroundColor: '#8E84FB', padding: 20, borderRadius: 10, margin: 10}}><Text style={{fontSize: 18, color: '#FAFAFA',textAlign: 'center',}}>{element[3]}</Text></TouchableHighlight>;
+      case 'echo' :
+        return <Text key={element[3]} style={{fontSize:20, textAlign:'center', marginTop: 40}}>{element[3]}!</Text>;
+      default:
+        return <Text>{element[3]}</Text>;
+    }
+  }
+
+  rightButtonConfig = {
+    title: 'Next',
+    tintColor: '#FEFFFE',
+    handler: () => {
+
+    },
+  };
+  
+  leftButtonConfig = {
+    title: 'Previous',
+    tintColor: '#FEFFFE',
+    handler: () => {
+      if(this.state.page === 0) {
+        return
+      } else {
+      this.setState({page: this.state.page-1})
+      }
+    },
+  };
+  
+  titleConfig = {
+    title: 'Homepage',
+  };
   
   render() {
-    const { navigate } = this.props.navigation
     if (!this.state.ready) {
       return(<Text>Loading...</Text>)
     } else {
       return (
-        <Grid>
-          <Row>
-            <View style={styles.container}>
-              <TouchableHighlight style={[styles.button, {backgroundColor: '#FECB44'}]}>
-                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[0][3]}</Text>
-              </TouchableHighlight>
-            </View>
-            <View style={styles.container}>
-              <TouchableHighlight style={[styles.button, {backgroundColor: '#18A25F'}]}>
-                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[1][3]}</Text>
-              </TouchableHighlight>
-            </View>
-          </Row>
-          <Row>
-            <View style={styles.container}>
-              <TouchableHighlight
-                onPress={() => navigate("ScreenTwo", {screen: "Screen Two", pageIndex: this.state.pageIndex})}
-                style={[styles.button, {backgroundColor: '#F9453B'}]}
-              >
-                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[2][3]}</Text>
-              </TouchableHighlight>
-            </View>
-            <View style={styles.container}>
-              <TouchableHighlight style={[styles.button, {backgroundColor: '#4B8BF5'}]}>
-                <Text style={styles.buttonText}>{this.state.pageIndex[0].elements[3][3]}</Text>
-              </TouchableHighlight>
-            </View>
-          </Row>
-        </Grid>
-      );
-    }
-  }
-};
-  
-class ScreenTwo extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: `${feed[1][1]}`,
-    }
-  };
-  render() {
-    const { state, navigate } = this.props.navigation;
-    return (
-      <View style={styles.container}>
-        {/* <Text style={styles.titleText}>{state.params.screen}</Text> */}
-
-        <View style={[styles.buttonContainer,{marginTop: 10}]}>
-          <TouchableHighlight
-            onPress={() => this.props.navigation.goBack()}
-            style={[styles.button, {backgroundColor: '#8E84FB'}, {padding: 20}]}>
-            <Text style={styles.buttonText}>{state.params.pageIndex[1].elements[0][3]}</Text>
-          </TouchableHighlight>
-
-          {/* <TouchableHighlight
-            onPress={() => navigate("ScreenThree", { screen: "Screen Three" })}
-            style={[styles.button, {backgroundColor: '#8E84FB'}]}>
-            <Text style={styles.buttonText}>Next</Text>
-          </TouchableHighlight> */}
+        <View style={styles.container}>
+          <NavigationBar
+           style={styles.navbar}
+           tintColor="#E42A21"
+           title={this.titleConfig}
+           leftButton={this.leftButtonConfig}
+           rightButton={this.rightButtonConfig}
+          />
+          {this.state.pageIndex[this.state.page].elements.map(item => this.fillPage(item))}
         </View>
-      </View>
-    );
+      )
+    }
   }
-};
-  
-const SimpleApp = StackNavigator({
-  ScreenOne: { screen: ScreenOne },
-  ScreenTwo: { screen: ScreenTwo },
-}, {
-  // tabBarOptions: { 
-  //   activeTintColor: '#7567B1',
-  //   labelStyle: {
-  //     fontSize: 20,
-  //     fontWeight: '600'
-  //   }
-  // }
-});
-  
-export default SimpleApp 
+}
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    alignSelf: 'stretch',
-    marginLeft: 5,
-    marginRight:5,
+    flex: 1,
   },
-  button: {
-    borderRadius: 10,
-    padding: 25,
-    paddingTop: 60,
-    paddingBottom: 60
-    
+  navbar: {
+    marginTop: 25,
+    marginBottom: 25,
   },
-  buttonText: {
-    fontSize: 18,
-    color: '#FAFAFA',
-    textAlign: 'center',
-    alignSelf:'center',
-  }
-});
+};
+
+// const rightButtonConfig = {
+//   title: 'Next',
+//   tintColor: '#FEFFFE',
+//   handler: () => console.log("Next"),
+// };
+
+// const leftButtonConfig = {
+//   title: 'Previous',
+//   tintColor: '#FEFFFE',
+//   handler: () => console.log("Previous"),
+// };
+
+// const titleConfig = {
+//   title: 'Homepage',
+// };
