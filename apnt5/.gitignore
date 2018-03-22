@@ -22,3 +22,9 @@ yarn.lock
 .watchmanconfig
 package-lock.json
 .DS_Store*
+
+/android
+/ios
+
+app.json
+index.js
