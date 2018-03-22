@@ -79,7 +79,8 @@ export default class App extends React.Component  {
   };
   
   titleConfig = {
-    title: 'Test App',
+    title: 'TEST APP',
+    style: {color: "#F4F4F4",fontSize: 25},
   };
   
   render() {
