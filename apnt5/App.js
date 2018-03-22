@@ -46,7 +46,7 @@ export default class App extends React.Component  {
     let item = element[2]
     switch (item) {
       case 'button':
-        return <TouchableHighlight key={element[3]} onPress={() => this.setState({ page: parseInt(element[5].match(/\d+/g)-1, 10) })} style={{backgroundColor: '#8E84FB', padding: 20, borderRadius: 10, margin: 10}}><Text style={{fontSize: 18, color: '#FAFAFA',textAlign: 'center',}}>{element[3]}</Text></TouchableHighlight>;
+        return <TouchableHighlight key={element[3]} onPress={() => {element[4] === "disabled" ? console.log('your going nowhere') : this.setState({ page: parseInt(element[5].match(/\d+/g)-1, 10) })}} style={{backgroundColor: '#8E84FB', padding: 20, borderRadius: 10, margin: 10}}><Text style={{fontSize: 18, color: '#FAFAFA',textAlign: 'center',}}>{element[3]}</Text></TouchableHighlight>;
       case 'echo' :
         return <Text key={element[3]} style={{fontSize:20, textAlign:'center', marginTop: 40}}>{element[3]}!</Text>;
       default:
@@ -58,7 +58,11 @@ export default class App extends React.Component  {
     title: 'Next',
     tintColor: '#FEFFFE',
     handler: () => {
-
+      if (this.state.page == this.state.pageIndex.length-1) {
+        return
+      } else {
+        this.setState({ page: this.state.page+1 })
+      }
     },
   };
   
@@ -66,10 +70,10 @@ export default class App extends React.Component  {
     title: 'Previous',
     tintColor: '#FEFFFE',
     handler: () => {
-      if(this.state.page === 0) {
+      if (this.state.page === 0) {
         return
       } else {
-      this.setState({page: this.state.page-1})
+      this.setState({ page: this.state.page-1 })
       }
     },
   };
@@ -107,19 +111,3 @@ const styles = {
     marginBottom: 25,
   },
 };
-
-// const rightButtonConfig = {
-//   title: 'Next',
-//   tintColor: '#FEFFFE',
-//   handler: () => console.log("Next"),
-// };
-
-// const leftButtonConfig = {
-//   title: 'Previous',
-//   tintColor: '#FEFFFE',
-//   handler: () => console.log("Previous"),
-// };
-
-// const titleConfig = {
-//   title: 'Homepage',
-// };
