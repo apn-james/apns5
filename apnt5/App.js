@@ -79,7 +79,7 @@ export default class App extends React.Component  {
   };
   
   titleConfig = {
-    title: 'Homepage',
+    title: 'Test App',
   };
   
   render() {
