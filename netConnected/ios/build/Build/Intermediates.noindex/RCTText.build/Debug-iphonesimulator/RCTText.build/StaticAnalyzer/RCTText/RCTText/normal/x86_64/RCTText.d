@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/node_modules/react-native/Libraries/Text/RCTText.m \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/node_modules/react-native/Libraries/Text/RCTText.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/node_modules/react-native/Libraries/Text/RCTShadowText.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/james.lopez/APN/react-native/apns5/netConnected/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h

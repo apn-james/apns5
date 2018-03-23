@@ -1,0 +1,3 @@
+rootProject.name = 'netConnected'
+
+include ':app'
