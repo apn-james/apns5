@@ -27,7 +27,7 @@ export default class App extends React.Component  {
     super(props);
 
     this.state = {
-      isConnected: true,
+      isConnected: false,
       ready: false,
       page: null,
       stored: false,
@@ -35,17 +35,42 @@ export default class App extends React.Component  {
     };
   }
 
-  componentDidMount() {
-    NetInfo.getConnectionInfo().then(connectionInfo => {
-      const isConnected = connectionInfo.type !== "none"
-      this.setState({ isConnected })
-    });
-    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
-    if (this.state.stored) {
-      AsyncStorage.getItem('pageIndex').then(value => this.setState.pageIndex({pageIndex: value}))
-    } else {
-      return
-    };
+  componentWillMount() {
+    NetInfo.getConnectionInfo()
+      .then(connectionInfo => {
+        const connectStatus = connectionInfo.type !== "none"
+        this.setState({ isConnected : connectStatus})
+        // console.log(this.state.isConnected)
+      })
+      // .then(() => console.log('Are we on:' + this.state.isConnected))
+      .then(() => NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange))
+      .then(() => AsyncStorage.getItem('stored'))
+      .then(value => { if (value) {
+        this.setState({stored: value})} else {this.setState({stored: false})}
+      })
+      .then(() => {
+        if (this.state.isConnected) {
+          getData()
+            .then(data => data.map(element => feed.push(element)))
+            .then(res => filterFeed(feed))
+            .then(res => matchPage(res, feed))
+            .then(res => this.setState({ pageIndex: res }))
+            .then(() => AsyncStorage.setItem('pageIndex', JSON.stringify(this.state.pageIndex)))
+            .then(() => AsyncStorage.setItem('stored', 'true'))
+            .then(() => this.setState({ stored: true}))
+            .then(() => this.setState({ page: parseInt(this.state.pageIndex[0][1].match(/\d+/g)-1, 10) }))
+            .then(() => this.setState({ ready: true }))
+        } else if (this.state.stored && !this.state.isConnected) {
+          AsyncStorage.getItem('pageIndex')
+            .then(req => JSON.parse(req))
+            .then(json => this.setState({ pageIndex: json}))
+            .then(() => this.setState({ page: parseInt(this.state.pageIndex[0][1].match(/\d+/g)-1, 10) }))
+            .then(() => thi.setState({ready:true}))
+            .catch(error => console.log('error!'))
+        } else {
+          alert('connect to the internet')
+        }})
+      .catch(err => alert("An error occurred"))
   }
 
   componentWillUnmount() {
@@ -54,27 +79,11 @@ export default class App extends React.Component  {
 
   handleConnectivityChange = isConnected => {
     if (isConnected) {
-      this.setState({ isConnected });
+      this.setState({isConnected: isConnected });
     } else {
-      this.setState({ isConnected });
+      this.setState({isConnected: isConnected });
     }
   };
-
-  componentWillMount() {
-    if (this.state.isConnected) {
-      getData()
-        .then(data => data.map(element => feed.push(element)))
-        .then(res => filterFeed(feed))
-        .then(res => matchPage(res, feed))
-        .then(res => this.setState({ pageIndex: res }))
-        .then(() => AsyncStorage.setItem('pageIndex', JSON.stringify(this.state.pageIndex)))
-        .then(() => this.setState({ page: parseInt(this.state.pageIndex[0][1].match(/\d+/g)-1, 10) }))
-        .then(() => this.setState({ ready: true }))
-        .catch(err => alert("An error occurred"));
-    } else {
-      alert('Please connect to the internet')
-    }
-  }
 
   fillPage = (element) => {
     let item = element[2]
