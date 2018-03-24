@@ -1,0 +1,4 @@
+#Fri Mar 23 16:58:47 PDT 2018
+base.0=/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

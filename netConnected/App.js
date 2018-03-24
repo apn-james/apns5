@@ -55,7 +55,7 @@ export default class App extends React.Component  {
             .then(res => filterFeed(feed))
             .then(res => matchPage(res, feed))
             .then(res => this.setState({ pageIndex: res }))
-            .then(() => AsyncStorage.setItem('pageIndex', JSON.stringify(this.state.pageIndex)))
+            .then(() => AsyncStorage.setItem('pageIndex', JSON.stringify(feed)))
             .then(() => AsyncStorage.setItem('stored', 'true'))
             .then(() => this.setState({ stored: true}))
             .then(() => this.setState({ page: parseInt(this.state.pageIndex[0][1].match(/\d+/g)-1, 10) }))
@@ -63,9 +63,12 @@ export default class App extends React.Component  {
         } else if (this.state.stored && !this.state.isConnected) {
           AsyncStorage.getItem('pageIndex')
             .then(req => JSON.parse(req))
-            .then(json => this.setState({ pageIndex: json}))
+            .then(data => data.map(element => feed.push(element)))
+            .then(() => filterFeed(feed))
+            .then(res => matchPage(res, feed))
+            .then(res => this.setState({ pageIndex: res}))
             .then(() => this.setState({ page: parseInt(this.state.pageIndex[0][1].match(/\d+/g)-1, 10) }))
-            .then(() => thi.setState({ready:true}))
+            .then(() => this.setState({ready:true}))
             .catch(error => console.log('error!'))
         } else {
           alert('connect to the internet')

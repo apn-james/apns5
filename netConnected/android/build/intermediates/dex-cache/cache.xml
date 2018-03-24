@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.1_fa2c15a039d2580c9799a3c2057a671f73b4a0b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_0f88a6c2724511adad9e0859d7d3d1e244905267.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_b2ae3e9f65d6b57a05bdcfde56d9d596d4812520.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="af61eb11ffb4296cab0c93218248a3dfcec0a84c">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.52.0_1b93774e6ea6465994dd6c94df15a82d52dc0369.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_120abce692084cbf6fa601f1517652ca9d25edae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_29a48e76c9413a3438762fb5795d114b0d7f1f54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_00dcd14f5ec322b875028f19dfbb96d12aaa4fdc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_edccf898567e43bfed590e614a5ee2782a63a635.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_5087b54ba0b3ff6785cbf2a89dfc998b66689e8a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_fee85299144d2980cf44b1cec29b3cc355cff48d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_c6322dc47b4939953c5b76f75e84b208c9bcf582.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_a7fee8a5bdaa81adf9defdb2c14c9a635c604721.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_2a737ba83b6a8d3811e00b82d2ebda6b4f69fe9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_21a08c03285f12ba693190a9e9fe7d735e07e959.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_6e6418270349503f63e651f1ef4c9812aa6889ba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.52.0/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_cb50aa21b776da471f0cd28874904eedc579aa06.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1_db7799bd2fc2631e8b41fb38f86f9fd140ac2b17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_6bc40c3c993b6842c522ce9db603aaf14d8f2002.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_baaa8096ca2c13880b9ecae57edd0c57fc1807bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_31f6c882637b86a7595e052d142cd428d170c6cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/james.lopez/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/james.lopez/APN/react-native/apns5/netConnected/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_0c2ae844fd4fd5a05b805e43f6d45cecc616edbd.jar" />
+    </item>
+
+</items>
